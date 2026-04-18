@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keranjang Belanja — HELIA INDONESIA</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">HELIA</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-icons">
+        <a href="shop.html" class="nav-icon-btn" title="Search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </a>
+        <a href="cart.html" class="nav-icon-btn" title="Cart">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-count" id="cartCount">2</span>
+        </a>
+        <a href="login.html" class="nav-icon-btn" title="Account" id="profileBtn">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADING -->
+  <section class="cart-hero">
+    <p class="section-label">HELIA INDONESIA</p>
+    <h1 class="cart-hero-title">Keranjang Belanja</h1>
+    <p class="cart-breadcrumb">
+      <a href="index.html">Home</a> &nbsp;/&nbsp;
+      <a href="shop.html">Shop</a> &nbsp;/&nbsp;
+      <span>Keranjang</span>
+    </p>
+  </section>
+
+  <!-- CART MAIN -->
+  <section class="cart-main">
+    <div class="cart-items-wrap">
+      <div class="cart-items-header">
+        <span>Produk</span>
+        <span>Harga</span>
+        <span>Jumlah</span>
+        <span>Total</span>
+        <span></span>
+      </div>
+
+      <!-- Item 1 -->
+      <div class="cart-item" id="item-1">
+        <div class="cart-item-product">
+          <div class="cart-item-img">
+            <img src="https://images.unsplash.com/photo-1594938298603-c8148c4b4f4a?w=80&auto=format&fit=crop&q=80" alt="Cozy Wide Leg Pants" />
+          </div>
+          <div class="cart-item-info">
+            <p class="cart-item-mood">Cozy Mood</p>
+            <h4 class="cart-item-name">Cozy Wide Leg Pants</h4>
+            <p class="cart-item-variant">Ukuran: S &nbsp;|&nbsp; Warna: Cream</p>
+          </div>
+        </div>
+        <div class="cart-item-price">Rp109.000</div>
+        <div class="cart-item-qty">
+          <button class="qty-btn" onclick="changeQty('item-1', -1)">−</button>
+          <span class="qty-val" id="qty-item-1">1</span>
+          <button class="qty-btn" onclick="changeQty('item-1', 1)">+</button>
+        </div>
+        <div class="cart-item-total" id="total-item-1">Rp109.000</div>
+        <button class="cart-item-delete" onclick="removeItem('item-1')" aria-label="Hapus">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="cart-item" id="item-2">
+        <div class="cart-item-product">
+          <div class="cart-item-img">
+            <img src="https://images.unsplash.com/photo-1551489186-cf8726f514f8?w=80&auto=format&fit=crop&q=80" alt="Flare Jogger Pants" />
+          </div>
+          <div class="cart-item-info">
+            <p class="cart-item-mood">Cozy Mood</p>
+            <h4 class="cart-item-name">Flare Jogger Pants</h4>
+            <p class="cart-item-variant">Ukuran: M &nbsp;|&nbsp; Warna: Brown</p>
+          </div>
+        </div>
+        <div class="cart-item-price">Rp99.000</div>
+        <div class="cart-item-qty">
+          <button class="qty-btn" onclick="changeQty('item-2', -1)">−</button>
+          <span class="qty-val" id="qty-item-2">1</span>
+          <button class="qty-btn" onclick="changeQty('item-2', 1)">+</button>
+        </div>
+        <div class="cart-item-total" id="total-item-2">Rp99.000</div>
+        <button class="cart-item-delete" onclick="removeItem('item-2')" aria-label="Hapus">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </div>
+
+      <div class="cart-actions">
+        <a href="shop.html" class="btn-outline">← Lanjut Belanja</a>
+      </div>
+    </div>
+
+    <!-- Ringkasan -->
+    <div class="cart-summary">
+      <h3 class="summary-title">Ringkasan</h3>
+      <div class="summary-row"><span>Subtotal</span><span id="subtotal">Rp208.000</span></div>
+      <div class="summary-row"><span>Ongkos Kirim</span><span id="ongkir">Rp15.000</span></div>
+      <div class="promo-wrap">
+        <label for="promoCode">Kode Promo</label>
+        <div class="promo-input-row">
+          <input type="text" id="promoCode" placeholder="Masukkan kode..." />
+          <button onclick="applyPromo()">Terapkan</button>
+        </div>
+        <p class="promo-note" id="promoNote"></p>
+      </div>
+      <div class="summary-divider"></div>
+      <div class="summary-row summary-total"><span>Total</span><span id="grandTotal">Rp223.000</span></div>
+      <a href="checkout.html" class="btn-primary cart-checkout-btn">CHECKOUT</a>
+      <a href="shop.html" class="cart-back-link">← Kembali Belanja</a>
+    </div>
+  </section>
+
+  <!-- EMPTY STATE -->
+  <div class="cart-empty" id="cartEmpty" style="display:none;">
+    <i class="fas fa-shopping-bag cart-empty-icon"></i>
+    <h3>Keranjangmu masih kosong</h3>
+    <p>Yuk, temukan koleksi yang cocok dengan mood-mu hari ini!</p>
+    <a href="shop.html" class="btn-primary">JELAJAHI KOLEKSI</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">HELIA</div>
+          <p class="footer-desc">Helia Indonesia — fashion berbasis mood untuk ekspresi sehari-hari.</p>
+          <div class="footer-socials">
+            <a href="#" title="Instagram">ig</a>
+            <a href="#" title="Facebook">fb</a>
+            <a href="#" title="TikTok">tk</a>
+          </div>
+        </div>
+        <div class="footer-col"><h5>Navigasi</h5><ul><li><a href="index.html">Home</a></li><li><a href="shop.html">Shop</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer-col"><h5>Kategori</h5><ul><li><a href="shop.html">Cozy Mood</a></li><li><a href="shop.html">Bold Mood</a></li><li><a href="shop.html">Calm Mood</a></li><li><a href="shop.html">New Arrival</a></li></ul></div>
+        <div class="footer-col">
+          <h5>Newsletter</h5>
+          <p style="font-size:12px; color:rgba(245,240,232,0.6); margin-bottom:1rem;">Update koleksi & promo eksklusif.</p>
+          <div class="footer-newsletter-input"><input type="email" placeholder="Email kamu..." /><button>Daftar</button></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 Helia Indonesia. Semua hak dilindungi.</span>
+        <span>Kelompok 1 — Web Design UI/UX</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="auth.js"></script>
+  <script>
+    const itemPrices = { 'item-1': 109000, 'item-2': 99000 };
+
+    function changeQty(id, delta) {
+      const qtyEl = document.getElementById('qty-' + id);
+      let qty = parseInt(qtyEl.textContent);
+      qty = Math.max(1, qty + delta);
+      qtyEl.textContent = qty;
+      updateTotal(id, qty);
+      updateSummary();
+    }
+    function updateTotal(id, qty) {
+      const total = itemPrices[id] * qty;
+      document.getElementById('total-' + id).textContent = 'Rp' + total.toLocaleString('id-ID');
+    }
+    function removeItem(id) {
+      const el = document.getElementById(id);
+      el.style.opacity = '0';
+      el.style.transform = 'translateX(20px)';
+      el.style.transition = 'all .3s ease';
+      setTimeout(() => {
+        el.remove();
+        delete itemPrices[id];
+        updateSummary();
+        checkEmpty();
+      }, 300);
+    }
+    function checkEmpty() {
+      if (document.querySelectorAll('.cart-item').length === 0) {
+        document.querySelector('.cart-main').style.display = 'none';
+        document.getElementById('cartEmpty').style.display = 'flex';
+        document.getElementById('cartCount').textContent = '0';
+      }
+    }
+    function updateSummary() {
+      let subtotal = 0;
+      for (const id in itemPrices) {
+        const qty = parseInt(document.getElementById('qty-' + id)?.textContent || 0);
+        subtotal += itemPrices[id] * qty;
+      }
+      const ongkir = subtotal > 0 ? 15000 : 0;
+      document.getElementById('subtotal').textContent = 'Rp' + subtotal.toLocaleString('id-ID');
+      document.getElementById('ongkir').textContent = 'Rp' + ongkir.toLocaleString('id-ID');
+      document.getElementById('grandTotal').textContent = 'Rp' + (subtotal + ongkir).toLocaleString('id-ID');
+      document.getElementById('cartCount').textContent = Object.keys(itemPrices).length;
+    }
+    function applyPromo() {
+      const code = document.getElementById('promoCode').value.trim().toUpperCase();
+      const note = document.getElementById('promoNote');
+      if (code === 'HELIA10') {
+        note.textContent = '✓ Kode promo berhasil! Diskon 10% diterapkan.';
+        note.style.color = '#5a7a5a';
+      } else {
+        note.textContent = '✗ Kode promo tidak valid.';
+        note.style.color = '#c0392b';
+      }
+    }
+  </script>
+</body>
+</html>
